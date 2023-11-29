@@ -22,7 +22,7 @@ async function updateGame(id, game) {
 
 async function createGame(game) {
   await client.connect();
-  game.totalScore = 0;
+  game.totalPoints = 0;
   await GameCollection.insertOne(game);
   return game;
 }

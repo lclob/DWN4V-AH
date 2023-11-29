@@ -60,13 +60,12 @@ async function getAverage(idGame) {
     throw new Error(`El juego ${game.name} no tiene votaciones`);
   }
 
-  // Calcular promedio de puntuaciones
-  let totalGameplay = 0, totalArt = 0, totalSound = 0, totalAffinity = 0;
+  let totalGameplay = 0, totalArt = 0, totalSound = 0, totalTheme = 0;
   for (const { categories } of votes) {
     totalGameplay += categories.gameplay;
     totalArt += categories.art;
     totalSound += categories.sound;
-    totalAffinity += categories.affinity;
+    totalTheme += categories.Theme;
   }
 
   return {
@@ -75,7 +74,7 @@ async function getAverage(idGame) {
     averageGameplay: (totalGameplay / votes.length),
     averageArt: (totalArt / votes.length),
     averageSound: (totalSound / votes.length),
-    averageAffinity: (totalAffinity / votes.length)
+    averageTheme: (totalTheme / votes.length)
   }
 }
 
